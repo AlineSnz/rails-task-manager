@@ -1,0 +1,19 @@
+<h1>TO DO list</h1>
+<!-- should loop over the tasks to display them -->
+<ul>
+  <% @tasks.each do |task| %>
+
+  <% if task.completed == true %>
+  <li> [X] - <%= link_to"[edit]", edit_path(task) %> - <%= link_to"[remove]", task_path(task), method: :delete %>
+   <%= link_to task.title, task_path(task)%>
+  </li>
+  <% else %>
+  <li> [ ] - <%= link_to"[edit]", edit_path(task) %> - <%= link_to"[remove]", task_path(task), method: :delete %>
+   <%= link_to task.title, task_path(task)%>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
+
+<p> <%= link_to "Add a new task", tasks_new_path %></p>
+
